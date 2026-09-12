@@ -1,11 +1,21 @@
+export type TechCategory =
+  | "Frontend"
+  | "Backend"
+  | "Database"
+  | "Language"
+  | "Styling"
+  | "DevOps"
+  | "Tools";
+
+export type TechDifficulty = "Beginner-Friendly" | "Intermediate" | "Advanced";
+
 export interface TechCard {
   id: string;
   name: string;
-  icon: string;
-  badge: string;
+  category: TechCategory;
   description: string;
-  category: string;
-  level: "Beginner-Friendly" | "Intermediate";
+  icon: string;
   rating: number;
-  type: "Frontend" | "Backend" | "Database" | "Language" | "Styling" | "DevOps";
+  difficulty: TechDifficulty;
+  badge: string;
 }
