@@ -4,7 +4,7 @@ interface NavbarProps{
 
 export default function Navbar({logo}:NavbarProps) {
     return (
-        <div className="sticky top-0 z-50 border-b border-gray-100 ">
+        <div className="sticky top-0 z-50 border-b border-gray-100 bg-white">
             <div className="mx-auto flex h-14 max-w-7xl items-center justify-between px-6">
                 {/* main logo */}
                 <div>

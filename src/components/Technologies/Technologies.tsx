@@ -16,7 +16,7 @@ export default function Technologies({
   );
 
   const handleAddToStack = (technology: TechCard) => {
-    if (selectedTechnologies.length >= 4) {
+    if (selectedTechnologies.length >= 7) {
       return;
     }
 
@@ -75,7 +75,7 @@ export default function Technologies({
 
         {/* Your Stack Card */}
         <div className="lg:col-span-1">
-          <div className="sticky top-20 rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
+          <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
             <h3 className="text-base font-bold text-gray-900">
               Your Stack
             </h3>

@@ -6,6 +6,7 @@ import bannerStack from "./assets/banner-stack.png"
 import type { TechCard } from './Dev/DevType';
 import { Suspense } from 'react';
 import Technologies from './components/Technologies/Technologies';
+import Footer from './components/Footer/Footer';
 
 
 const TechnologiesPromise = async (): Promise<TechCard[]> => {
@@ -20,10 +21,11 @@ function App() {
 
   return (
     <>
-      <Navbar logo={logoText} />
-      <Hero banner={bannerStack}/>
       <Suspense fallback= {<h1>Loading...</h1>}>
+        <Navbar logo={logoText} />
+        <Hero banner={bannerStack}/>
         <Technologies technologiesPromise ={TechnologiesPromise()} />
+        <Footer logo={logoText} />
       </Suspense>
     </>
   );
