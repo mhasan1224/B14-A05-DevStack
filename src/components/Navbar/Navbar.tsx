@@ -20,8 +20,8 @@ export default function Navbar({logo}:NavbarProps) {
                 </ul>
                 {/* Login & SignUp Option */}
                 <div className="flex items-center gap-4 text-sm">
-                <button className="cursor-pointer text-gray-600 hover:text-pink-600">Sign In</button>
-                <button className="cursor-pointer rounded-full bg-pink-600 px-5 py-2 font-medium text-white hover:bg-pink-700">SignUp</button>
+                <button className="btn rounded px-5 py-2 font-medium">Sign In</button>
+                <button className="btn rounded-full bg-pink-600 px-5 py-2 font-medium text-white hover:bg-pink-700">SignUp</button>
                 </div>
             </div>
         </div>
