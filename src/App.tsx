@@ -1,6 +1,7 @@
 import './App.css'
 import Navbar from './components/Navbar/Navbar'
 import logoText from "./assets/logo-text.png";
+import hamburger from "./assets/hamburger.png"
 import Hero from './components/Hero/Hero';
 import bannerStack from "./assets/banner-stack.png"
 import type { TechCard } from './Dev/DevType';
@@ -22,7 +23,7 @@ function App() {
   return (
     <>
       <Suspense fallback= {<h1>Loading...</h1>}>
-        <Navbar logo={logoText} />
+        <Navbar logo={logoText} hamburger={hamburger} />
         <Hero banner={bannerStack}/>
         <Technologies technologiesPromise ={TechnologiesPromise()} />
         <Footer logo={logoText} />
