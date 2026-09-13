@@ -37,7 +37,7 @@ export default function Technologies({
     }
 
     setSelectedTechnologies([...selectedTechnologies, technology]);
-    toast.success(`${technology.name} added to your stack!`);
+    toast.success(`${technology.name} added to your stack.`);
   };
 
   const handleRemoveFromStack = (id: string) => {
