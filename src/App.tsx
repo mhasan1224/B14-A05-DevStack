@@ -11,7 +11,7 @@ import Footer from './components/Footer/Footer';
 
 
 const TechnologiesPromise = async (): Promise<TechCard[]> => {
-  const res = await fetch("./DevStack/data.json");
+  const res = await fetch("/DevStack/data.json");
   const data = await res.json();
   return data;
 };

@@ -17,15 +17,22 @@ export default function Technologies({
   );
 
   const handleAddToStack = (technology: TechCard) => {
-    if (selectedTechnologies.length >= 7) {
-      toast.warning("You can select maximum 7 technologies.")
+    if (selectedTechnologies.length >= 6) {
+      toast.warning("You can select maximum 6 technologies.");
       return;
     }
 
     if (
       selectedTechnologies.some((selected) => selected.id === technology.id)
     ) {
-      toast.info(`${technology.name} is already in your stack.`);
+      toast.warning(`${technology.name} is already in your stack.`);
+      return;
+    }
+
+    if (
+      selectedTechnologies.some((selected) => selected.category === technology.category)
+    ) {
+      toast.warning(`${technology.category} is already in your stack.`);
       return;
     }
 
@@ -36,18 +43,18 @@ export default function Technologies({
   const handleRemoveFromStack = (id: string) => {
     const technology = selectedTechnologies.find(
       (technology) => technology.id === id,
-    )
+    );
     setSelectedTechnologies(
       selectedTechnologies.filter((technology) => technology.id !== id),
     );
-    if(technology) {
-      toast.success(`${technology.name} remove from your stack.`)
+    if (technology) {
+      toast.success(`${technology.name} removed from your stack.`);
     }
   };
 
   const handleRemoveAll = () => {
     setSelectedTechnologies([]);
-    toast.success("All technologies removed from your stack.")
+    toast.success("All technologies removed from your stack.");
   };
 
   return (
@@ -70,7 +77,7 @@ export default function Technologies({
       <div className="grid grid-cols-1 gap-5 lg:grid-cols-4">
         {/* Technologies Card */}
         <div className="lg:col-span-3">
-          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-3">
+          <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
             {technologies.map((technology) => (
               <Technology
                 key={technology.id}
@@ -87,9 +94,7 @@ export default function Technologies({
         {/* Your Stack Card */}
         <div className="lg:col-span-1">
           <div className="rounded-xl border border-gray-200 bg-white p-4 shadow-sm">
-            <h3 className="text-base font-bold text-gray-900">
-              Your Stack
-            </h3>
+            <h3 className="text-base font-bold text-gray-900">Your Stack</h3>
 
             {selectedTechnologies.length === 0 ? (
               <>
@@ -106,7 +111,12 @@ export default function Technologies({
             ) : (
               <>
                 <p className="mt-1 text-xs text-gray-400">
-                  {selectedTechnologies.length} technologies selected.
+                  {" "}
+                  {selectedTechnologies.length}{" "}
+                  {selectedTechnologies.length === 1
+                    ? "Technology"
+                    : "Technologies"}{" "}
+                  Selected
                 </p>
 
                 <div className="mt-4 space-y-2">
@@ -134,9 +144,7 @@ export default function Technologies({
                       </div>
 
                       <button
-                        onClick={() =>
-                          handleRemoveFromStack(technology.id)
-                        }
+                        onClick={() => handleRemoveFromStack(technology.id)}
                         className="text-gray-400 hover:text-red-500"
                       >
                         ×

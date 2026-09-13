@@ -7,7 +7,7 @@ export default function Footer({ logo }: FooterProps) {
     <footer className="mt-20 border-t border-gray-100 bg-white">
       <div className="mx-auto max-w-7xl px-6 py-12">
         {/* footer top */}
-        <div className="grid grid-cols-1 gap-15 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-16 md:grid-cols-2 lg:grid-cols-4">
           <div>
             {/* logo area */}
             <img src={logo} alt="Logo" className="w-24" />
@@ -24,26 +24,26 @@ export default function Footer({ logo }: FooterProps) {
           <div>
             <h3 className="text-xs font-bold text-gray-800">PRODUCT</h3>
             <ul className="mt-4 space-y-2 text-xs text-gray-500">
-              <li>Home</li>
-              <li>Technologies</li>
-              <li>Projects</li>
+              <li><a href="#" className="hover:text-pink-600">Home</a></li>
+              <li><a href="#" className="hover:text-pink-600">Technologies</a></li>
+              <li><a href="#" className="hover:text-pink-600">Projects</a></li>
             </ul>
           </div>
           {/* company */}
           <div>
             <h3 className="text-xs font-bold text-gray-800">COMPANY</h3>
             <ul className="mt-4 space-y-2 text-xs text-gray-500">
-              <li>About</li>
-              <li>Contact</li>
-              <li>Careers</li>
+                <li><a href="#" className="hover:text-pink-600">About</a></li>
+                <li><a href="#" className="hover:text-pink-600">Contact</a></li>
+                <li><a href="#" className="hover:text-pink-600">Careers</a></li>
             </ul>
           </div>
           {/* legal */}
           <div>
             <h3 className="text-xs font-bold text-gray-800">LEGAL</h3>
             <ul className="mt-4 space-y-2 text-xs text-gray-500">
-              <li>Privacy Policy</li>
-              <li>Terms of Service</li>
+                <li><a href="#" className="hover:text-pink-600">Privacy Policy</a></li>
+                <li><a href="#" className="hover:text-pink-600">Terms of Service</a></li>
             </ul>
           </div>
         </div>
@@ -52,8 +52,8 @@ export default function Footer({ logo }: FooterProps) {
         <div className="mt-10 flex flex-col items-center justify-between gap-4 border-t border-gray-100 pt-6 text-xs text-gray-400 md:flex-row">
           <p>© 2026 Dev Stack. All rights reserved.</p>
           <div className="flex gap-6">
-            <span>Privacy</span>
-            <span>Terms</span>
+            <a href="#" className="hover:text-gray-600">Privacy</a>
+            <a href="#" className="hover:text-gray-600">Terms</a>
           </div>
         </div>
       </div>
