@@ -1,6 +1,7 @@
 import { use, useState } from "react";
 import type { TechCard } from "../../Dev/DevType";
 import Technology from "../Technology/Technology";
+import { toast } from "react-toastify";
 
 export type TechnologiesProps = {
   technologiesPromise: Promise<TechCard[]>;
@@ -17,26 +18,36 @@ export default function Technologies({
 
   const handleAddToStack = (technology: TechCard) => {
     if (selectedTechnologies.length >= 7) {
+      toast.warning("You can select maximum 7 technologies.")
       return;
     }
 
     if (
       selectedTechnologies.some((selected) => selected.id === technology.id)
     ) {
+      toast.info(`${technology.name} is already in your stack.`);
       return;
     }
 
     setSelectedTechnologies([...selectedTechnologies, technology]);
+    toast.success(`${technology.name} added to your stack!`);
   };
 
   const handleRemoveFromStack = (id: string) => {
+    const technology = selectedTechnologies.find(
+      (technology) => technology.id === id,
+    )
     setSelectedTechnologies(
       selectedTechnologies.filter((technology) => technology.id !== id),
     );
+    if(technology) {
+      toast.success(`${technology.name} remove from your stack.`)
+    }
   };
 
   const handleRemoveAll = () => {
     setSelectedTechnologies([]);
+    toast.success("All technologies removed from your stack.")
   };
 
   return (
